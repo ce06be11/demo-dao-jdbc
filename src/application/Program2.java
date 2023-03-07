@@ -1,5 +1,7 @@
 package application;
 
+import java.util.List;
+
 import db.DB;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
@@ -19,6 +21,16 @@ public class Program2 {
 		dep = new Department(null, "Teste");
 		department.insert(dep);
 		System.out.println(department.findById(dep.getId()));
+		
+		System.out.println("===== Teste #3: Delete department =====");
+		//department.deleteById(8);
+		System.out.println("Deleted");
+		
+		System.out.println("===== Teste #4: FindAll department =====");
+		List<Department> departments = department.findAll();
+		for (Department deps : departments) {
+			System.out.println(deps);
+		}
 		
 		DB.closeConnection();
 	}
